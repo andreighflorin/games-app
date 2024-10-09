@@ -1,0 +1,73 @@
+@import "./variables"; // Importing variables for consistency
+@import "./_mixins"; // Importing mixins for responsive design if needed
+
+$lobby-padding: 20px; // Define a variable for padding
+$hover-scale: 1.05; // Variable for hover effect scale
+
+.lobbyContainer {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .center {
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  .gamesList {
+    padding: $lobby-padding;
+
+    .gameGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px; // Adjust spacing between tiles
+
+      .gameTile {
+        background: $background-color;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center; // Center content
+        transition: transform 0.2s;
+        border: 1px solid $border-color;
+        padding: 20px 0;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale($hover-scale); // Slight scale effect on hover
+        }
+
+        .gameImage {
+          border-radius: 8px 8px 0 0; // Rounded corners for images
+          object-fit: cover; // Cover image nicely
+        }
+
+        .gameTitle {
+          font-size: 1.25rem;
+          margin: 8px 0;
+          font-weight: bold;
+        }
+
+        .provider {
+          font-size: 1rem;
+          color: $primary-color; // Lighter color for provider
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}
+
+// Media query for smaller screens
+@include respond-to(mobile) {
+  // Using mixin for responsiveness
+  .gamesList {
+    padding: 8px;
+
+    .gameGrid {
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+      ); // Adjust for smaller screens
+    }
+  }
+}

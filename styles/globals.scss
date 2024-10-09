@@ -1,0 +1,28 @@
+// styles/_globals.scss
+
+@import "./variables";
+@import "./mixins"; // If you have any mixins, import them here
+
+body {
+  font-family: $font-family;
+  color: $primary-color;
+  margin: 0;
+  padding: 0 15px; // Consider using a mixin for padding if used frequently
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+// Add any global styles here (like buttons, links, etc.)
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
